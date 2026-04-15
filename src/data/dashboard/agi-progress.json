@@ -1,0 +1,79 @@
+{
+  "composite_score": 66,
+  "stand": "Q1 2026",
+  "methodology": "Weighted Geometric Mean der SOTA/Baseline-Gaps aus 8 öffentlichen Benchmarks. Keine subjektiven Gewichtungen — gap_i = min(100, SOTA_i ÷ Baseline_i × 100), Score = exp(Σ w_i × ln(gap_i) ÷ Σ w_i).",
+  "dimensions": [
+    {
+      "key": "reasoning",
+      "label": "Abstract Reasoning",
+      "value": 77,
+      "weight": 15,
+      "description": "ARC-AGI-2: Gemini 3.1 Pro erreicht 77.1% (Human Avg 100%). ARC-AGI-3 resettet das Feld — Gap zur menschlichen Leistung bleibt materiell.",
+      "benchmarks": ["ARC-AGI-2"],
+      "sources": ["ARC Prize Foundation (Chollet)"]
+    },
+    {
+      "key": "expert_knowledge",
+      "label": "Expert Knowledge",
+      "value": 100,
+      "weight": 8,
+      "description": "GPQA Diamond: Gemini 3.1 Pro bei 94.3% — übersteigt PhD-Baseline (81%). Benchmark gesättigt, Umstellung auf Humanity's Last Exam (HLE) in Vorbereitung.",
+      "benchmarks": ["GPQA Diamond"],
+      "sources": ["Rein et al. 2023"]
+    },
+    {
+      "key": "math",
+      "label": "Advanced Math",
+      "value": 100,
+      "weight": 8,
+      "description": "MATH + AIME 2025: GPT-5.4 Pro 97.2% — über Expert-Humans-Baseline (95%). Reasoning-Modelle haben Mathematik praktisch gelöst.",
+      "benchmarks": ["MATH", "AIME 2025"],
+      "sources": ["Artificial Analysis Leaderboard"]
+    },
+    {
+      "key": "coding",
+      "label": "Coding Agency",
+      "value": 90,
+      "weight": 12,
+      "description": "SWE-bench Verified: Claude Opus 4.6 bei 80.8% vs. Senior-Dev-Baseline (90%). Isolierte Tasks gelöst, Architekturarbeit noch nicht.",
+      "benchmarks": ["SWE-bench Verified"],
+      "sources": ["SWE-bench Paper (Jimenez et al. 2024)"]
+    },
+    {
+      "key": "multimodal",
+      "label": "Multimodal Understanding",
+      "value": 99,
+      "weight": 10,
+      "description": "MMMU: Gemini 3.1 Pro 88.4% — nahe Expert-Humans (89%). Cross-Modal-Reasoning praktisch gelöst, nur Edge-Cases bleiben.",
+      "benchmarks": ["MMMU"],
+      "sources": ["Yue et al. 2023"]
+    },
+    {
+      "key": "long_horizon",
+      "label": "Long-Horizon Agency",
+      "value": 70,
+      "weight": 20,
+      "description": "METR 24h Agent Eval: Claude Opus 4.6 + Tools bei ~70% (vs. Supervised-Human 100%). DER AGI-Marker — Agents verlieren über Tage den Fokus.",
+      "benchmarks": ["METR Agent Eval"],
+      "sources": ["METR Research 2025"]
+    },
+    {
+      "key": "tool_use",
+      "label": "Tool Use / Autonomie",
+      "value": 58,
+      "weight": 12,
+      "description": "OSWorld + WebArena: GPT-5.4 Pro + Computer Use ~42% vs. Human-Baseline 72%. Modelle klicken Buttons, verlieren aber oft Kontext.",
+      "benchmarks": ["OSWorld", "WebArena"],
+      "sources": ["Xie et al. 2024"]
+    },
+    {
+      "key": "self_improve",
+      "label": "Self-Improvement / RSI",
+      "value": 22,
+      "weight": 15,
+      "description": "METR RE-Bench + MLE-bench: AlphaEvolve-2 ~22% vs. PhD-ML-Researcher (100%). Der 'letzte Meter' zu AGI — erste Ansätze messbar, kein deployed RSI-Loop.",
+      "benchmarks": ["METR RE-Bench", "MLE-bench"],
+      "sources": ["METR Research", "OpenAI MLE-bench"]
+    }
+  ]
+}

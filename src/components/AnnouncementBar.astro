@@ -1,0 +1,70 @@
+---
+/**
+ * Dismissible Announcement-Bar über der Navigation.
+ *
+ * NOCH NICHT AKTIV — als Slot vorbereitet für künftige Live-Announcements
+ * (Release-Hinweise, Event-Promo, etc.).
+ *
+ * Aktivierung: in Layout.astro <AnnouncementBar>...</AnnouncementBar>
+ * direkt VOR <Navigation /> einbetten.
+ *
+ * Props:
+ *   storageKey  — localStorage-Key, damit "dismiss" persistent bleibt (pro Kampagne ändern)
+ *   tone        — "info" | "burgundy" | "accent"
+ */
+
+interface Props {
+  storageKey?: string;
+  tone?: 'info' | 'burgundy' | 'accent';
+}
+const { storageKey = 'announce-v1', tone = 'burgundy' } = Astro.props;
+
+const toneStyles: Record<string, string> = {
+  info: 'background: rgba(26,24,20,0.92); color: #f5f1e8;',
+  burgundy: 'background: linear-gradient(90deg, #8b2c4d 0%, #5b3aa3 100%); color: #f5f1e8;',
+  accent: 'background: var(--color-accent-deep); color: #f5f1e8;',
+};
+---
+
+<div
+  id="announce-bar"
+  class="announce-bar relative w-full opacity-0 pointer-events-none transition-opacity duration-300"
+  style={toneStyles[tone]}
+  data-storage-key={storageKey}
+>
+  <div class="section-container flex items-center justify-center gap-4 py-2 text-xs md:text-sm">
+    <slot />
+    <button
+      type="button"
+      data-announce-dismiss
+      class="ml-auto shrink-0 p-1 rounded-full opacity-70 hover:opacity-100 transition-opacity"
+      aria-label="Hinweis schließen"
+    >
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('announce-bar');
+  if (bar) {
+    const key = bar.dataset.storageKey || 'announce-v1';
+    const dismissed = localStorage.getItem(key) === '1';
+    if (!dismissed) {
+      bar.classList.remove('opacity-0', 'pointer-events-none');
+      bar.classList.add('opacity-100', 'pointer-events-auto');
+    }
+    bar.querySelector<HTMLButtonElement>('[data-announce-dismiss]')?.addEventListener('click', () => {
+      localStorage.setItem(key, '1');
+      bar.style.height = `${bar.offsetHeight}px`;
+      requestAnimationFrame(() => {
+        bar.style.height = '0';
+        bar.style.overflow = 'hidden';
+        bar.style.transition = 'height 0.25s, opacity 0.25s';
+        bar.style.opacity = '0';
+      });
+    });
+  }
+</script>
