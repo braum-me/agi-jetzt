@@ -1,0 +1,76 @@
+{
+  "stand": "Q1 2026",
+  "source": "EU Official Journal + US Federal Register + Chinese CAC + UK AISI",
+  "items": [
+    {
+      "region": "EU",
+      "flag": "🇪🇺",
+      "name": "EU AI Act — GPAI Phase 2",
+      "status": "in_force",
+      "status_label": "In Kraft",
+      "since": "02.02.2026",
+      "description": "Transparenz-Pflichten für General-Purpose AI Models ab 10^25 FLOPs Training-Compute aktiv.",
+      "url": "https://artificialintelligenceact.eu"
+    },
+    {
+      "region": "US",
+      "flag": "🇺🇸",
+      "name": "AI Diffusion Framework",
+      "status": "in_force",
+      "status_label": "In Kraft",
+      "since": "13.01.2025",
+      "description": "Export-Controls auf Frontier-Chips & Model-Weights. Tiered country system.",
+      "url": "https://www.bis.doc.gov"
+    },
+    {
+      "region": "US",
+      "flag": "🇺🇸",
+      "name": "NIST AI RMF 2.0",
+      "status": "voluntary",
+      "status_label": "Empfehlung",
+      "since": "Q3 2025",
+      "description": "Risk Management Framework für Federal-Kontraktoren. Freiwillig für Private.",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework"
+    },
+    {
+      "region": "CN",
+      "flag": "🇨🇳",
+      "name": "Generative AI Services Rules v3",
+      "status": "in_force",
+      "status_label": "In Kraft",
+      "since": "01.12.2025",
+      "description": "Content-Filtering Requirements, Security Assessment für alle public-facing GenAI.",
+      "url": "http://www.cac.gov.cn"
+    },
+    {
+      "region": "UK",
+      "flag": "🇬🇧",
+      "name": "AI Safety Institute Evaluations",
+      "status": "voluntary",
+      "status_label": "Vereinbart",
+      "since": "Q1 2025",
+      "description": "Pre-release Safety Testing durch AISI mit 28 Nationen (Bletchley-II).",
+      "url": "https://www.aisi.gov.uk"
+    },
+    {
+      "region": "Global",
+      "flag": "🌐",
+      "name": "Bletchley-II Summit Agreements",
+      "status": "voluntary",
+      "status_label": "32 Staaten",
+      "since": "10.03.2026",
+      "description": "Gemeinsame Shutdown-Protokolle bei Capability-Sprüngen, verbindliche Evaluierungs-Standards.",
+      "url": "https://www.gov.uk/bletchley-summit"
+    },
+    {
+      "region": "EU",
+      "flag": "🇪🇺",
+      "name": "AI Act Phase 3 (prospective)",
+      "status": "pending",
+      "status_label": "Geplant",
+      "since": "Q3 2026 (erwartet)",
+      "description": "High-Risk System Compliance: Healthcare, Legal, Hiring. Audits durch Notified Bodies.",
+      "url": "https://artificialintelligenceact.eu"
+    }
+  ]
+}

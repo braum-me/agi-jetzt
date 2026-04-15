@@ -1,0 +1,23 @@
+{
+  "stand": "Q1 2026",
+  "source": "Curated from News + Company Announcements",
+  "window": "Apr 2025 — Apr 2026",
+  "events": [
+    { "month": "04/25", "date": "05.04.2025", "title": "Llama 4 Scout (10M Context)", "org": "Meta", "impact": "high", "category": "release" },
+    { "month": "05/25", "date": "18.05.2025", "title": "Google I/O: Gemini 2.5 Deep Think", "org": "Google DeepMind", "impact": "medium", "category": "release" },
+    { "month": "07/25", "date": "22.07.2025", "title": "GPT-5 released", "org": "OpenAI", "impact": "high", "category": "release" },
+    { "month": "08/25", "date": "14.08.2025", "title": "Grok 4 mit Realtime Search", "org": "xAI", "impact": "medium", "category": "release" },
+    { "month": "09/25", "date": "09.09.2025", "title": "Apple Intelligence GA", "org": "Apple", "impact": "medium", "category": "release" },
+    { "month": "10/25", "date": "15.10.2025", "title": "Claude 4.5 Opus", "org": "Anthropic", "impact": "medium", "category": "release" },
+    { "month": "11/25", "date": "11.11.2025", "title": "Gemini 3 Pro launch", "org": "Google DeepMind", "impact": "high", "category": "release" },
+    { "month": "12/25", "date": "04.12.2025", "title": "Stargate Megacluster angekündigt", "org": "Oracle + OpenAI", "impact": "high", "category": "infrastructure" },
+    { "month": "01/26", "date": "20.01.2026", "title": "DeepSeek V3.2 (1/50 Preis)", "org": "DeepSeek", "impact": "high", "category": "release" },
+    { "month": "02/26", "date": "02.02.2026", "title": "EU AI Act Phase 2 in Kraft", "org": "EU", "impact": "high", "category": "regulation" },
+    { "month": "02/26", "date": "15.02.2026", "title": "Gemini 3.1 Pro — ARC-AGI-2 77%", "org": "Google DeepMind", "impact": "high", "category": "release" },
+    { "month": "03/26", "date": "10.03.2026", "title": "Bletchley-II: 32-Staaten Safety Deal", "org": "UK Gov", "impact": "medium", "category": "regulation" },
+    { "month": "03/26", "date": "15.03.2026", "title": "Claude Opus 4.6 — SWE-bench 80.8%", "org": "Anthropic", "impact": "high", "category": "release" },
+    { "month": "03/26", "date": "25.03.2026", "title": "ARC-AGI-3 released (Top: 0.37%)", "org": "ARC Prize", "impact": "high", "category": "benchmark" },
+    { "month": "04/26", "date": "02.04.2026", "title": "GPT-5.4 Pro + Operator 2.0", "org": "OpenAI", "impact": "high", "category": "release" },
+    { "month": "04/26", "date": "10.04.2026", "title": "Gemini 3.1 + GPT-5.4 tied #1", "org": "Artificial Analysis", "impact": "medium", "category": "benchmark" }
+  ]
+}

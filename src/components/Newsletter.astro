@@ -1,0 +1,120 @@
+---
+/**
+ * Newsletter Subscribe — Email capture Component.
+ * Posted via formaction (User muss Endpoint noch konfigurieren) oder als client-side state.
+ * Für den Launch: ConvertKit/Buttondown/Mailchimp Form-URL setzen.
+ */
+---
+
+<section id="newsletter" class="relative py-32 md:py-40">
+  <div class="section-container">
+    <div class="max-w-4xl mx-auto ink rounded-3xl p-8 md:p-16 relative overflow-hidden">
+      <!-- Decorative blur -->
+      <div
+        class="absolute -top-1/2 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full opacity-30 blur-3xl pointer-events-none"
+        style="background: radial-gradient(circle, rgba(122, 85, 204, 0.5), transparent 70%);"
+      ></div>
+
+      <div class="relative text-center">
+        <div
+          class="badge mx-auto mb-6"
+          style="background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.15); color: rgba(255, 255, 255, 0.8);"
+        >
+          <span class="w-1 h-1 rounded-full bg-accent-bright"></span>
+          Weekly AGI Digest
+        </div>
+
+        <h2 class="font-display font-normal text-[clamp(2rem,5vw,4rem)] leading-[1.05] mb-6" style="color: #faf6ed;">
+          Die Woche der KI —<br/>
+          <em class="italic" style="background: linear-gradient(135deg, #c4b5fd, #e879f9); -webkit-background-clip: text; background-clip: text; color: transparent;">in deinem Postfach.</em>
+        </h2>
+
+        <p class="text-base md:text-lg mb-10 max-w-xl mx-auto" style="color: rgba(255, 255, 255, 0.75);">
+          Jeden Sonntag kuratiert: die wichtigsten Papers, Releases und strategischen Entwicklungen.
+          Keine Hot-Takes. Kein Noise. Nur das, was zählt.
+        </p>
+
+        <!-- Form -->
+        <form
+          id="newsletter-form"
+          class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto"
+          novalidate
+        >
+          <input
+            type="email"
+            name="email"
+            placeholder="deine@email.de"
+            required
+            class="flex-1 px-5 py-3.5 rounded-full font-medium outline-none transition-all"
+            style="background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); color: #faf6ed;"
+          />
+          <button
+            type="submit"
+            class="px-6 py-3.5 rounded-full font-medium whitespace-nowrap transition-all hover:-translate-y-0.5 active:translate-y-0"
+            style="background: #faf6ed; color: #0f0d0a; box-shadow: 0 10px 30px -10px rgba(167, 139, 250, 0.5);"
+          >
+            Abonnieren →
+          </button>
+        </form>
+
+        <!-- Success state (hidden by default) -->
+        <div id="newsletter-success" class="mt-8 hidden">
+          <p class="text-lg font-display italic" style="color: #c4b5fd;">
+            "Danke — du bist dabei."
+          </p>
+          <p class="text-sm mt-2" style="color: rgba(255, 255, 255, 0.6);">
+            Check deine Inbox: Bestätigungs-Mail unterwegs.
+          </p>
+        </div>
+
+        <!-- Trust signals -->
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs font-mono uppercase tracking-[0.2em]" style="color: rgba(255, 255, 255, 0.5);">
+          <span class="flex items-center gap-2">
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Kein Spam
+          </span>
+          <span class="flex items-center gap-2">
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+            DSGVO-konform
+          </span>
+          <span class="flex items-center gap-2">
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+            Jederzeit abbestellen
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('newsletter-form') as HTMLFormElement;
+  const success = document.getElementById('newsletter-success');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const email = formData.get('email');
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email))) {
+      form.querySelector('input')?.focus();
+      return;
+    }
+
+    // Store in localStorage as proof-of-concept
+    // TODO: Replace with actual endpoint (Buttondown, ConvertKit, etc.)
+    try {
+      const subs = JSON.parse(localStorage.getItem('agi_subscribers') || '[]');
+      subs.push({ email, ts: Date.now() });
+      localStorage.setItem('agi_subscribers', JSON.stringify(subs));
+    } catch {}
+
+    form.style.display = 'none';
+    success?.classList.remove('hidden');
+  });
+</script>
